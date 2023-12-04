@@ -1,0 +1,33 @@
+<li
+  [ngClass]="{
+    'list-group-item': true,
+    'list-group-item-success': appareilStatut === 'On',
+    'list-group-item-danger': appareilStatut === 'Off'
+  }"
+  [ngStyle]="{ 'color': getColor() }">
+
+  <div class="d-flex align-items-center">
+    <img [src]="appareilAvatar" [title]="appareilName" width="50px" height="50px" />
+
+    <div class="ml-3">
+      <h3>
+        {{ appareilName }}
+        <label class="btn btn-success" *ngIf="appareilStatut === 'On'">{{ appareilStatut }}</label>
+        <label class="btn btn-danger" *ngIf="appareilStatut === 'Off'">{{ appareilStatut }}</label>
+      </h3>
+
+      <div class="form-group">
+        <label for="appareilNameInput">Name:</label>
+        <input type="text" id="appareilNameInput" class="form-control" [(ngModel)]="appareilName" />
+      </div>
+
+      <div class="form-group">
+        <label for="appareilStatutInput">Status:</label>
+        <input type="text" id="appareilStatutInput" class="form-control" [(ngModel)]="appareilStatut" />
+      </div>
+    </div>
+  </div>
+
+
+
+</li>
